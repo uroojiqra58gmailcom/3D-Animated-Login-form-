@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Stunning Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 3D Floating Particles Background -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- 3D Geometric Shapes -->
+    <div class="geometric-shapes">
+        <div class="shape-3d cube"></div>
+        <div class="shape-3d sphere"></div>
+        <div class="shape-3d pyramid"></div>
+        <div class="shape-3d torus"></div>
+    </div>
+
+    <div class="main-container">
+        <!-- 3D Login Card -->
+        <div class="login-card-3d">
+            <!-- Card Inner Content -->
+            <div class="card-inner">
+                <!-- Header with 3D Logo -->
+                <div class="header-3d">
+                    <div class="logo-3d">
+                        <div class="logo-cube">
+                            <div class="cube-face front">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <div class="cube-face back">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="cube-face right">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="cube-face left">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <div class="cube-face top">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <div class="cube-face bottom">
+                                <i class="fas fa-sparkles"></i>
+                            </div>
+                        </div>
+                        <h1 class="title-3d">Welcome Back</h1>
+                    </div>
+                    <p class="subtitle-3d">Sign in to your magical world</p>
+                </div>
+
+                <!-- 3D Form -->
+                <form class="form-3d" id="loginForm">
+                    <!-- Email Input with 3D Effects -->
+                    <div class="input-group-3d">
+                        <div class="input-container-3d">
+                            <div class="input-icon-3d">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <input type="email" id="email" placeholder=" " required>
+                            <label for="email">Email Address</label>
+                            <div class="input-highlight-3d"></div>
+                        </div>
+                    </div>
+
+                    <!-- Password Input with 3D Effects -->
+                    <div class="input-group-3d">
+                        <div class="input-container-3d">
+                            <div class="input-icon-3d">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <input type="password" id="password" placeholder=" " required>
+                            <label for="password">Password</label>
+                            <button type="button" class="toggle-password-3d" onclick="togglePassword()">
+                                <i class="fas fa-eye" id="toggleIcon"></i>
+                            </button>
+                            <div class="input-highlight-3d"></div>
+                        </div>
+                    </div>
+
+                    <!-- Form Options -->
+                    <div class="form-options-3d">
+                        <label class="checkbox-3d">
+                            <input type="checkbox" id="remember">
+                            <span class="checkmark-3d"></span>
+                            <span class="checkbox-text">Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link-3d">Forgot Password?</a>
+                    </div>
+
+                    <!-- 3D Login Button -->
+                    <button type="submit" class="btn-3d login-btn-3d">
+                        <span class="btn-text">Sign In</span>
+                        <div class="btn-icon-3d">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="btn-ripple"></div>
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="divider-3d">
+                        <span>or continue with</span>
+                    </div>
+
+                    <!-- Social Login Buttons -->
+                    <div class="social-login-3d">
+                        <button type="button" class="social-btn-3d google-3d">
+                            <i class="fab fa-google"></i>
+                        </button>
+                        <button type="button" class="social-btn-3d facebook-3d">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button type="button" class="social-btn-3d twitter-3d">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button type="button" class="social-btn-3d github-3d">
+                            <i class="fab fa-github"></i>
+                        </button>
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <div class="signup-link-3d">
+                        <p>Don't have an account? <a href="#" onclick="showRegister()">Create one</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

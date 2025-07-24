@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Login Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 400px;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        /* HOVER EFFECT THAT WILL DEFINITELY WORK */
+        .card:hover {
+            transform: translateY(-20px) rotateX(10deg) rotateY(5deg) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        /* INPUT HOVER EFFECT THAT WILL DEFINITELY WORK */
+        input:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        input:focus {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            border-color: #667eea;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+
+        /* BUTTON HOVER EFFECT THAT WILL DEFINITELY WORK */
+        .btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .social-btn {
+            width: 30%;
+            padding: 10px;
+            margin: 5px;
+            background: #f0f0f0;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* SOCIAL BUTTON HOVER EFFECT THAT WILL DEFINITELY WORK */
+        .social-btn:hover {
+            transform: translateY(-3px) scale(1.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .form-container {
+            transition: all 0.5s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .switch-link {
+            color: #667eea;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .switch-link:hover {
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" id="mainCard">
+        <!-- LOGIN FORM -->
+        <div class="form-container" id="loginForm">
+            <h2 class="title">Welcome Back!</h2>
+            
+            <div class="input-group">
+                <input type="email" placeholder="Email" id="email">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" placeholder="Password" id="password">
+            </div>
+            
+            <button class="btn" onclick="handleLogin()">Sign In</button>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <button class="social-btn">Google</button>
+                <button class="social-btn">Facebook</button>
+                <button class="social-btn">Twitter</button>
+            </div>
+            
+            <p style="text-align: center;">
+                Don't have an account? 
+                <span class="switch-link" onclick="showRegister()">Sign up</span>
+            </p>
+        </div>
+
+        <!-- REGISTER FORM -->
+        <div class="form-container hidden" id="registerForm">
+            <h2 class="title">Create Account</h2>
+            
+            <div class="input-group">
+                <input type="text" placeholder="Full Name" id="fullName">
+            </div>
+            
+            <div class="input-group">
+                <input type="email" placeholder="Email" id="regEmail">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" placeholder="Password" id="regPassword">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" placeholder="Confirm Password" id="confirmPassword">
+            </div>
+            
+            <button class="btn" onclick="handleRegister()">Create Account</button>
+            
+            <p style="text-align: center;">
+                Already have an account? 
+                <span class="switch-link" onclick="showLogin()">Sign in</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        console.log('🚀 Script loaded!');
+
+        // SIMPLE SLIDING FUNCTION THAT WILL DEFINITELY WORK
+        function showRegister() {
+            console.log('Switching to register');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            
+            // Slide out login form
+            loginForm.style.transform = 'translateX(-100px)';
+            loginForm.style.opacity = '0';
+            
+            setTimeout(() => {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+                
+                // Slide in register form
+                registerForm.style.transform = 'translateX(100px)';
+                registerForm.style.opacity = '0';
+                
+                setTimeout(() => {
+                    registerForm.style.transform = 'translateX(0)';
+                    registerForm.style.opacity = '1';
+                }, 50);
+            }, 250);
+        }
+
+        function showLogin() {
+            console.log('Switching to login');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            
+            // Slide out register form
+            registerForm.style.transform = 'translateX(100px)';
+            registerForm.style.opacity = '0';
+            
+            setTimeout(() => {
+                registerForm.classList.add('hidden');
+                loginForm.classList.remove('hidden');
+                
+                // Slide in login form
+                loginForm.style.transform = 'translateX(-100px)';
+                loginForm.style.opacity = '0';
+                
+                setTimeout(() => {
+                    loginForm.style.transform = 'translateX(0)';
+                    loginForm.style.opacity = '1';
+                }, 50);
+            }, 250);
+        }
+
+        function handleLogin() {
+            alert('Login clicked! (This is just a demo)');
+        }
+
+        function handleRegister() {
+            alert('Register clicked! (This is just a demo)');
+        }
+
+        // Test hover effects on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ Page loaded! Hover effects should work now!');
+            
+            // Add extra hover listeners just to be sure
+            const card = document.getElementById('mainCard');
+            card.addEventListener('mouseenter', function() {
+                console.log('🎯 CARD HOVER DETECTED!');
+            });
+            
+            const buttons = document.querySelectorAll('.btn, .social-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    console.log('🎯 BUTTON HOVER DETECTED!');
+                });
+            });
+            
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('mouseenter', function() {
+                    console.log('🎯 INPUT HOVER DETECTED!');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
